@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afghan Girls Bright Future | AGBF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lapis: #1A3A5C;
+      --lapis-light: #24507E;
+      --saffron: #F0A500;
+      --saffron-pale: #FDE8AA;
+      --ivory: #FAF6EF;
+      --rose: #E8C4B8;
+      --text-dark: #1A1A1A;
+      --text-mid: #4A4A4A;
+      --text-light: #7A7A7A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ivory);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,58,92,0.96);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--saffron);
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span {
+      color: white;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+
+    .nav-apply {
+      background: var(--saffron);
+      color: var(--lapis) !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-apply:hover {
+      background: #FFB820 !important;
+      color: var(--lapis) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── KILIM BORDER PATTERN ── */
+    .kilim-strip {
+      width: 100%;
+      height: 14px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--saffron) 0px, var(--saffron) 10px,
+          var(--lapis) 10px, var(--lapis) 20px,
+          var(--rose) 20px, var(--rose) 30px,
+          var(--lapis) 30px, var(--lapis) 40px
+        );
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, var(--lapis) 0%, #0D2540 60%, #162B42 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 100px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,165,0,0.12) 0%, transparent 70%);
+      top: -200px; right: -150px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 1.1;
+      color: white;
+      text-align: center;
+      max-width: 820px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--saffron);
+    }
+
+    .hero-sub {
+      margin-top: 1.8rem;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      margin-top: 3rem;
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--saffron);
+      color: var(--lapis);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1rem 2.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(240,165,0,0.35);
+    }
+    .btn-primary:hover {
+      background: #FFB820;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(240,165,0,0.5);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 1rem 2.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--saffron);
+      background: rgba(240,165,0,0.08);
+    }
+
+    .hero-stats {
+      margin-top: 4rem;
+      display: flex; gap: 3.5rem; flex-wrap: wrap; justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 2.5rem;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--saffron);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.4rem;
+    }
+
+    /* ── KILIM AFTER HERO ── */
+    .kilim-strip-rose {
+      width: 100%;
+      height: 14px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--rose) 0px, var(--rose) 10px,
+          #C8A898 10px, #C8A898 20px,
+          var(--saffron-pale) 20px, var(--saffron-pale) 30px,
+          #C8A898 30px, #C8A898 40px
+        );
+    }
+
+    /* ── MISSION ── */
+    .mission {
+      background: var(--ivory);
+      padding: 7rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mission-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+    }
+
+    .mission h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--lapis);
+    }
+
+    .mission p {
+      margin-top: 1.4rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    .mission-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .pillar {
+      background: white;
+      border-radius: 8px;
+      padding: 1.6rem 1.4rem;
+      border-top: 3px solid var(--saffron);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .pillar-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--lapis);
+      margin-bottom: 0.5rem;
+    }
+    .pillar p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+      font-weight: 400;
+      margin-top: 0 !important;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      background: var(--lapis);
+      padding: 7rem 5vw;
+      text-align: center;
+    }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+
+    .how .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+    }
+    .how h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 3.5rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .step {
+      position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem 1.4rem 1.8rem;
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: var(--lapis);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+    .step p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+    }
+
+    /* ── APPLY SECTION ── */
+    .apply-section {
+      background: var(--ivory);
+      padding: 7rem 5vw;
+      text-align: center;
+    }
+    .apply-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 4rem 3rem;
+      box-shadow: 0 4px 40px rgba(26,58,92,0.1);
+      border-bottom: 4px solid var(--saffron);
+    }
+
+    .apply-inner .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+    }
+    .apply-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: var(--lapis);
+      margin-bottom: 1rem;
+    }
+    .apply-inner p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 2.2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0D2540;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem 5vw;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+    footer strong {
+      color: var(--saffron);
+      font-weight: 600;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .mission { grid-template-columns: 1fr; padding: 4rem 6vw; }
+      .mission-pillars { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .apply-inner { padding: 2.5rem 1.5rem; }
+      .hero-stats { gap: 2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      AGBF
+      <span>Afghan Girls Bright Future</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#apply" class="nav-apply">Apply Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Free Online Education for Afghan Girls</p>
+    <h1 class="hero-title">
+      Every Girl Deserves a<br/><em>Bright Future</em>
+    </h1>
+    <p class="hero-sub">
+      AGBF provides free, high-quality online education to Afghan girls — breaking barriers and building futures, one lesson at a time.
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://forms.google.com" target="_blank" class="btn-primary">Apply Now — It's Free</a>
+      <a href="#mission" class="btn-secondary">Learn More</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        
+      </div>
+      <div class="stat">
+        <div class="stat-num">Online</div>
+        <div class="stat-label">Learn From Anywhere</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Dari &amp; English</div>
+        <div class="stat-label">Languages of Instruction</div>
+      </div>
+    </div>
+  </section>
+  <div class="kilim-strip"></div>
+
+  <!-- MISSION -->
+  <section class="mission" id="mission">
+    <div>
+      <p class="mission-label">Our Mission</p>
+      <h2>Education is a Right, Not a Privilege</h2>
+      <p>
+        Afghan Girls Bright Future (AGBF) was founded to ensure that no girl's education ends because of geography, conflict, or circumstance. We deliver rigorous, caring online schooling to girls across Afghanistan and the diaspora who have been denied access to classrooms.
+      </p>
+      <p>
+        Our volunteer teachers, curriculum designers, and mentors believe that an educated generation of Afghan women will shape a better world — for Afghanistan and beyond.
+      </p>
+    </div>
+    <div class="mission-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">📚</div>
+        <h3>Core Curriculum</h3>
+        <p>Mathematics, science, literature, and language arts — taught rigorously and with care.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌐</div>
+        <h3>Fully Online</h3>
+        <p>Study safely from home, at your own pace, with live sessions and recorded lessons.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <h3>Mentorship</h3>
+        <p>Every student is paired with a mentor who supports her learning journey and goals.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎓</div>
+        <h3>Certification</h3>
+        <p>Complete your studies and receive a certificate recognized by our partner institutions.</p>
+      </div>
+    </div>
+  </section>
+  <div class="kilim-strip-rose"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="how-inner">
+      <p class="section-label">How It Works</p>
+      <h2>Your Path to Enrollment</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Submit Your Application</h3>
+          <p>Fill out our simple Google Form — takes less than 10 minutes. No fees, no documents required to start.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Welcome Interview</h3>
+          <p>A member of our team will reach out to learn about your goals and match you with the right program level.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Start Learning</h3>
+          <p>Access your classes online — live sessions, recorded lectures, and a community of fellow students.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Grow &amp; Graduate</h3>
+          <p>Work toward your certificate, build skills, and open doors to higher education and opportunity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section class="apply-section" id="apply">
+    <div class="apply-inner">
+      <p class="section-label">Enrollment Open</p>
+      <h2>Ready to Begin?</h2>
+      <p>
+        Applications are open now. The form takes just a few minutes to complete. We welcome students of all ages and backgrounds — all you need is the desire to learn.
+      </p>
+      <!-- ↓ Replace the href below with your actual Google Forms link ↓ -->
+      <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Apply Now — Open Application Form
+      </a>
+    </div>
+  </section>
+
+  <!-- KILIM FOOTER -->
+  <div class="kilim-strip"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Afghan Girls Bright Future (AGBF)</strong><br/>
+    Free online education for Afghan girls, everywhere.<br/>
+    <br/>
+    © 2025 AGBF — All Rights Reserved
+  </footer>
+
+</body>
+</html>
